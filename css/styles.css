@@ -1,0 +1,59 @@
+.page{
+    border:1px black solid;
+    width: 98vw;
+    height: 98vh;
+    display: flex;
+
+}
+
+.header{
+    border:1px black solid;
+    background-color: blue;
+    display: flex;
+    border-left: hidden;
+    border-top: hidden;
+    border-right: hidden;
+    flex-grow: 1;
+
+
+}
+.texte{
+    border:1px black solid;
+    background-color: red;
+    border-top: hidden;
+    border-bottom: hidden;
+    margin: 0px 8vw;
+    display: flex;
+    flex-grow: 3;
+
+}
+.contenu {
+    width: 98vw;
+    height: 98vh;
+    display: flex;
+    flex-direction: column;
+}
+.menu {
+
+    border:black solid 1px;
+    border-bottom: hidden;
+    border-right: hidden;
+    border-left: hidden;
+    position: relative;
+    padding: 5vh 5vw;
+    height: 5vh;
+    background-color: gray;
+    display: flex;
+}
+
+@media only screen and (max-width: 400px) {
+    /* Style adjustments for viewports that meet the condition */
+    .texte {
+        border: 1px black solid;
+        background-color: red;
+        border-top: hidden;
+        border-bottom: hidden;
+        display: flex;
+        flex-grow: 2.5;
+    }
+}
