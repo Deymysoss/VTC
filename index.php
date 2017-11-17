@@ -27,6 +27,21 @@
                     </div>
                 </div>
                 <div class="texte">
+                        <div class="hauttexte">
+                            <form method="post">
+
+                                <p>login :<input type="text" name="login"></p>
+                                <p>mot de passe :<input type="password" name="mdp"></p>
+                                </br>
+                                <input type="submit" name="envoyer" value="envoyer">
+                            </form>
+                        </div>
+                        <div class="bashtexte">
+                            <input type="button" value="Création d'un compte" onclick="document.location.href='register.php';">
+                        </div>
+
+
+
                 </div>
             </div>
 

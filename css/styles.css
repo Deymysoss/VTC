@@ -13,7 +13,8 @@
     border-left: hidden;
     border-top: hidden;
     border-right: hidden;
-    flex-grow: 1;
+    height: 20vh;
+    flex-direction: column;
 
 
 }
@@ -24,7 +25,10 @@
     border-bottom: hidden;
     margin: 0px 8vw;
     display: flex;
-    flex-grow: 3;
+    height: 80vh;
+    text-align: center;
+    font-size: 10vh;
+
 
 }
 .contenu {
