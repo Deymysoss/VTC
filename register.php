@@ -1,7 +1,7 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="styles.css" type="txt/css">
+    <link rel="stylesheet" href="css/styles.css">
 
 
 
@@ -18,20 +18,19 @@
 
                     </div>
                     <div class="menu">
-
+                        <input id="btnacceuil" type="button" value="Accueil" onclick="document.location.href='index.php';">
                     </div>
                 </div>
-                <div class="texte">
+                <div class="contenupage">
 
-                        <form method="post">
+                        <p id="titrecreation" >Création d'un compte :</p></br>
 
-                            <p>login:<input type="text" name="login"></p>
-                            <p>mot de passe:<input type="text" name="mdp"></p>
-                            <p>nom:<input type="text" name="nom"></p>
-                            <p>prenom:<input type="text" name="prenom"></p>
-                            <p>adresse:<input type="text" name="adresse"></p>
+                        <form id="formulairergst" method="post">
 
-                            <input type="submit" name="valider" value="valider">
+                            <p>login </br><input   type="text" name="login"></p>
+                            <p>mot de passe </br><input type="text" name="mdp"></p>
+
+                            <input id="btnvalider" type="submit" name="valider" value="valider">
                         </form>
 
 
