@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html class="no-js" lang="">
     <head>
@@ -26,23 +29,32 @@
 
                     </div>
                     <div class="menu">
-                        <input id="btnacceuil" type="button" value="Accueil" onclick="document.location.href='index.php';">
-                        <input id="btnregister" type="button" value="Création d'un compte" onclick="document.location.href='register.php';">
+                        <input id="btnacceuil" class="btn" type="button" value="Accueil" onclick="document.location.href='index.php';">
+                        <input id="btnregister" class="btn" type="button" value="Création d'un compte" onclick="document.location.href='register.php';">
                     </div>
                 </div>
                 <div class="contenupage">
                     <p id="titrecnx" >Connexion au compte :</p></br>
-                        <form id="formulairecnx" method="post">
+                        <form id="formulairecnx" method="post" action="traitement.php">
 
                             <p>login :</br><input  type="text" name="login"></p>
                             <p>mot de passe :</br><input type="password" name="mdp"></p>
                             </br>
                             <input id="btnvalider" type="submit" name="envoyer" value="envoyer">
+
                         </form>
+                    <?php
+
+                    ?>
                 </div>
             </div>
 
         </div>
+
+
+
+
+
         <script src="js/vendor/modernizr-3.5.0.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
@@ -55,5 +67,11 @@
             ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
         </script>
         <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+
+
+
+
+
     </body>
 </html>
