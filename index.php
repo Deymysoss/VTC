@@ -1,5 +1,13 @@
 <?php
 session_start();
+if(empty($_SESSION))
+{
+    session_start();
+    if( isset($_SESSION['loginutilisateur']))
+    {
+        header("Location : accueil.php");
+    }
+}
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -40,7 +48,7 @@ session_start();
                             <p>login :</br><input  type="text" name="login"></p>
                             <p>mot de passe :</br><input type="password" name="mdp"></p>
                             </br>
-                            <input id="btnvalider" type="submit" name="envoyer" value="envoyer">
+                            <input id="btnvalider" class="btn" type="submit" name="envoyer" value="envoyer">
 
                         </form>
                     <?php

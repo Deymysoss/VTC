@@ -1,11 +1,12 @@
 <?php
 session_start();
+include("connexion.php");
 ?>
 <?php
 
 // Connexion au serveur
 
-include("connexion.php");
+
 $select = $conn->prepare("SELECT utilisateur.login FROM utilisateur WHERE login = :login AND mdp = :mdp");
 $select->bindParam(':login', $login);
 $select->bindParam(':mdp', $mdp);
@@ -42,7 +43,7 @@ try {
 
 <?php
 // Connexion au serveur
-include("connexion.php");
+
 $sql = $conn->prepare('INSERT INTO utilisateur VALUES(:login, :mdp);');
 $sql->bindParam(':login', $login);
 $sql->bindParam(':mdp', $mdp);
