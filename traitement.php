@@ -1,13 +1,19 @@
 <?php
 session_start();
-include("connexion.php");
+$option=$_POST['option'];
+
 ?>
+
+
+
 <?php
 
 // Connexion au serveur
+include("connexion.php");
+if ($option == "connexion"){
 
 
-$select = $conn->prepare("SELECT utilisateur.login FROM utilisateur WHERE login = :login AND mdp = :mdp");
+$select = $conn->prepare("SELECT compte.compteNom FROM compte WHERE compteNom = :login AND compteMdp = :mdp");
 $select->bindParam(':login', $login);
 $select->bindParam(':mdp', $mdp);
 try {
@@ -27,7 +33,8 @@ try {
     if( $success ) {
         while( $enreg = $select->fetch() )
         {
-            $_SESSION['loginutilisateur'] = $enreg->login;
+            $_SESSION['loginutilisateur'] = $enreg->compteNom;
+            $_SESSION['connecte']=true;
         }
 
 
@@ -35,31 +42,57 @@ try {
 } catch( Exception $e ){
     echo 'Erreur de requète : ', $e->getMessage();
 }
-?>
 
-
-
-
-
-<?php
-// Connexion au serveur
-
-$sql = $conn->prepare('INSERT INTO utilisateur VALUES(:login, :mdp);');
-$sql->bindParam(':login', $login);
-$sql->bindParam(':mdp', $mdp);
-try {
-    // Préparation des données
-    $login = $_POST['login'];
-    $mdp = $_POST['mdp'];
-    // Envoi de la requête avec les données
-    $success = $sql->execute();
-
-    if( $success ) {
-
-    }
-} catch( Exception $e ){
-    echo 'Erreur de requète : ', $e->getMessage();
-}
+$select->closeCursor();
 header('Location: accueil.php');
+
+
+
+
+}elseif ($option == "creation"){
+    $nom=$_POST['login'];
+    $test = $conn->query('SELECT compte.compteNom FROM compte WHERE compteNom=\''.$nom.'\';');
+    $success = $test->execute();
+    $test->setFetchMode(PDO::FETCH_OBJ);
+    if( $success ) {
+        while( $enreg = $test->fetch() )
+        {
+            $lenom = $enreg->compteNom;
+
+        }
+    }
+    if ($nom == $lenom) {
+        echo ("Ce produit existe déjà dans la base de données");
+        exit;
+    }else{
+        $sql = $conn->prepare('INSERT INTO compte (compteNom, compteMdp)VALUES(:login, :mdp);');
+        $sql->bindParam(':login', $login);
+        $sql->bindParam(':mdp', $mdp);
+        try {
+            // Préparation des données
+            $login = $_POST['login'];
+            $mdp = $_POST['mdp'];
+            // Envoi de la requête avec les données
+            $success = $sql->execute();
+
+            if( $success ) {
+
+            }
+        } catch( Exception $e ){
+            echo 'Erreur de requète : ', $e->getMessage();
+        }
+
+        $sql->closeCursor();
+    }
+
+
+
+header('Location: index.php');
+}
 ?>
+
+
+
+
+
 

@@ -30,8 +30,8 @@ session_start();
 
                             <p>login </br><input   type="text" name="login"></p>
                             <p>mot de passe </br><input type="text" name="mdp"></p>
-
-                            <input id="btnvalider" type="submit" name="valider" value="valider">
+                            <input type="hidden" name="option" value="creation"/>
+                            <input id="btnvalider" class="btn" type="submit" name="valider" value="valider">
                         </form>
 
 
