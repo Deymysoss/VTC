@@ -35,16 +35,26 @@ try {
         {
             $_SESSION['loginutilisateur'] = $enreg->compteNom;
             $_SESSION['connecte']=true;
+            $_SESSION['message']="Connexion réussie ";
+            $_SESSION['connexionfail']=true;
         }
-
+    }
+    else{
+        $_SESSION['message']="Connexion réussie";
+        $_SESSION['connexionfail']=true;
 
     }
+
+
+    header('Location: index.php');
 } catch( Exception $e ){
-    echo 'Erreur de requète : ', $e->getMessage();
+
+
+
 }
 
 $select->closeCursor();
-header('Location: accueil.php');
+
 
 
 

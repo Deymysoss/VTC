@@ -26,20 +26,38 @@ session_start();
 
         </div>
         <div class="contenupage">
+
+            <?php
+            if( isset( $_SESSION['loginutilisateur']))
+            {
+
+                echo "<p>". $_SESSION['message']."</p>";
+
+            }
+            else{
+
+            }
+            ?>
+
+
+
+
+
             <table id="tableaudonnées">
-                <tr>
-                    <th>histDate</th>
-                    <th>consoBatterie</th>
-                    <th>temperatureMoteur</th>
+                <tr class="tableau">
+                    <th class="tab">histDate</th>
+                    <th class="tab">consoBatterie</th>
+                    <th class="tab">temperatureMoteur</th>
 
                 </tr>
 
 
-            <?php
+
+                <?php
             $nomcpt = $_SESSION['loginutilisateur'];
             include("connexion.php");
             // Envoi de la requête
-            $select = $conn->query('SELECT historique.histDate, historique.consoBatterie, historique.temperatureMoteur FROM historique INNER JOIN voiture ON historique.voitureid = voiture.voitureid INNER JOIN compte on voiture.compteid = compte.compteid WHERE compte.compteNom = \''.$nomcpt.'\';');
+            $select = $conn->query('SELECT historique.histDate, historique.consoBatterie, historique.temperatureMoteur, historique.voitureId FROM historique INNER JOIN voiture ON historique.voitureid = voiture.voitureid INNER JOIN compte on voiture.compteid = compte.compteid WHERE compte.compteNom = \''.$nomcpt.'\' order by voitureId ');
             // Indication de la méthode utilisée pour la manipulation des données
 
             try {
@@ -47,11 +65,12 @@ session_start();
 
                 while ($ligne = $select->fetch()) {
                     ?>
-                    <tr>
-                        <th><?php echo $ligne['histDate'];?></th>
-                        <th><?php echo $ligne['consoBatterie'];?></th>
-                        <th><?php echo $ligne['temperatureMoteur'];?></th>
+                    <tr class="tableau">
+                        <th class="tab"><?php echo $ligne['histDate'];?></th>
+                        <th class="tab"><?php echo $ligne['consoBatterie'];?></th>
+                        <th class="tab"><?php echo $ligne['temperatureMoteur'];?></th>
                     </tr>
+
                     <?php
                 }
 

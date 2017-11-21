@@ -14,9 +14,6 @@
 </head>
 <body>
 <!--[if lte IE 9]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-<![endif]-->
-
 <!-- Add your site or application content here -->
 <div class="page">
     <div class="contenu">
@@ -30,7 +27,9 @@
             </div>
         </div>
         <div class="contenupage">
-            <p id="titrecnx" >Connexion au compte :</p></br>
+
+
+
             <form id="formulairecnx" method="post" action="traitement.php">
 
                 <p>login :</br><input  type="text" name="login"></p>
@@ -38,10 +37,19 @@
                 </br>
                 <input type="hidden" name="option" value="connexion">
                 <input id="btnvalider" class="btn" type="submit" name="envoyer" value="envoyer">
-
             </form>
-            <?php
 
+            <?php
+            session_start();
+            if( isset( $_SESSION['connexionfail']))
+            {
+
+                echo "<p>". $_SESSION['message']."</p>";
+
+            }
+            else{
+
+            }
             ?>
         </div>
     </div>
@@ -52,11 +60,6 @@
 
 
 
-<script src="js/vendor/modernizr-3.5.0.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
-<script src="js/plugins.js"></script>
-<script src="js/main.js"></script>
 
 <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 <script>

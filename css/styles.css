@@ -45,6 +45,12 @@
 
 }
 
+.tableau{
+    border: solid 1px black;
+}
+.tab{
+    border: solid 1px black;
+}
 
 
 .contenu {
@@ -132,7 +138,7 @@
 
 
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
     /* Style adjustments for viewports that meet the condition */
     .texte {
         border: 1px black solid;
@@ -160,6 +166,7 @@
         width: auto;
         height: auto;
         left: 25vw;
+
     }
 
     #titrecreation{
