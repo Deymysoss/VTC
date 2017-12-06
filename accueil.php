@@ -22,6 +22,7 @@ session_start();
             <div class="menu">
                 <input id="btnacceuil" class="btn" type="button" value="Accueil" onclick="document.location.href='index.php';">
                 <input id="btndeconnexion" class="btn" type="button" value="Déconnexion" onclick="document.location.href='deconnexion.php';">
+                <input id="btndeconnexion" class="btn" type="button" value="Ajout véhicule" onclick="document.location.href='ajoutvoiture.php';">
             </div>
 
         </div>
@@ -82,6 +83,37 @@ session_start();
             ?>
 
             </table>
+
+
+
+
+            <?php
+                    $nomcpt = $_SESSION['loginutilisateur'];
+                    include("connexion.php");
+            // Envoi de la requête
+            $select = $conn->query('SELECT voiture.voitureId  FROM voiture INNER JOIN compte on voiture.compteid = compte.compteid WHERE compte.compteNom = \''.$nomcpt.'\' order by voitureId ');
+            // Indication de la méthode utilisée pour la manipulation des données
+           
+            try {
+            /* $nomcompte = $_SESSION['loginutilisateur'];*/
+
+            while ($ligne = $select->fetch()) {
+
+
+                echo $ligne['voitureId'];
+
+                }
+
+            }
+            catch(Exception $e)
+            {
+                die('Erreur : '.$e->getMessage());
+            }
+            ?>
+
+
+
+
 
 
 

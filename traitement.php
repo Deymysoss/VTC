@@ -1,7 +1,7 @@
 <?php
 session_start();
 $option=$_POST['option'];
-
+$idu=$_SESSION['idutilisateur'];
 ?>
 
 
@@ -13,7 +13,7 @@ include("connexion.php");
 if ($option == "connexion"){
 
 
-$select = $conn->prepare("SELECT compte.compteNom FROM compte WHERE compteNom = :login AND compteMdp = :mdp");
+$select = $conn->prepare("SELECT compte.compteNom,compte.compteId FROM compte WHERE compteNom = :login AND compteMdp = :mdp");
 $select->bindParam(':login', $login);
 $select->bindParam(':mdp', $mdp);
 try {
@@ -34,6 +34,7 @@ try {
         while( $enreg = $select->fetch() )
         {
             $_SESSION['loginutilisateur'] = $enreg->compteNom;
+            $_SESSION['idutilisateur'] = $enreg->compteId;
             $_SESSION['connecte']=true;
             $_SESSION['message']="Connexion réussie ";
             $_SESSION['connexionfail']=true;
@@ -99,8 +100,32 @@ $select->closeCursor();
 
 header('Location: index.php');
 }
-?>
+elseif($option == "ajoutvoiture"){
 
+        $sql = $conn->prepare('INSERT INTO voiture (voitureType, voitureMdp, compteId) VALUES (:typev, :mdpv, :iduser);');
+        $sql->bindParam(':typev', $typev);
+        $sql->bindParam(':mdpv', $mdpv);
+        $sql->bindParam(':iduser', $iduser);
+        try {
+        // Préparation des données
+        $typev = $_POST['typev'];
+        $mdpv = $_POST['mdpv'];
+        $iduser =  $idu;
+        // Envoi de la requête avec les données
+        $success = $sql->execute();
+
+        if( $success ) {
+            $_SESSION['message']="Ajout du vehiculte effectué";
+        }
+        } catch( Exception $e ){
+            $_SESSION['message']="L'ajout du vehiculte a échoué";
+        }
+
+$sql->closeCursor();
+
+header('Location: index.php');
+}
+?>
 
 
 
