@@ -85,6 +85,25 @@
 
 
 
+.custom-dropdown--large {
+    font-size: 1.5em;
+
+}
+
+.custom-dropdown--small {
+    font-size: .7em;
+}
+
+.custom-dropdown__select{
+    text-align: center;
+    padding: .5em; /* add some space*/
+
+}
+
+.custom-dropdown__select--white {
+    background-color: #fff;
+    color: #444;
+}
 
 
 

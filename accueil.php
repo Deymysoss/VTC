@@ -44,75 +44,38 @@ session_start();
 
 
 
-            <table id="tableaudonnées">
-                <tr class="tableau">
-                    <th class="tab">histDate</th>
-                    <th class="tab">consoBatterie</th>
-                    <th class="tab">temperatureMoteur</th>
-
-                </tr>
 
 
+            <span class="custom-dropdown custom-dropdown--white">
 
+            <select class="custom-dropdown__select custom-dropdown__select--white">
+                <option value="base" disabled selected>Choisir véhicule</option>
                 <?php
-            $nomcpt = $_SESSION['loginutilisateur'];
-            include("connexion.php");
-            // Envoi de la requête
-            $select = $conn->query('SELECT historique.histDate, historique.consoBatterie, historique.temperatureMoteur, historique.voitureId FROM historique INNER JOIN voiture ON historique.voitureid = voiture.voitureid INNER JOIN compte on voiture.compteid = compte.compteid WHERE compte.compteNom = \''.$nomcpt.'\' order by voitureId ');
-            // Indication de la méthode utilisée pour la manipulation des données
+                        $nomcpt = $_SESSION['loginutilisateur'];
+                        include("connexion.php");
+                // Envoi de la requête
+                $select = $conn->query('SELECT voiture.voitureId  FROM voiture INNER JOIN compte on voiture.compteid = compte.compteid WHERE compte.compteNom = \''.$nomcpt.'\' order by voitureId ');
+                // Indication de la méthode utilisée pour la manipulation des données
 
-            try {
+                try {
                 /* $nomcompte = $_SESSION['loginutilisateur'];*/
 
                 while ($ligne = $select->fetch()) {
-                    ?>
-                    <tr class="tableau">
-                        <th class="tab"><?php echo $ligne['histDate'];?></th>
-                        <th class="tab"><?php echo $ligne['consoBatterie'];?></th>
-                        <th class="tab"><?php echo $ligne['temperatureMoteur'];?></th>
-                    </tr>
-
-                    <?php
-                }
-
-            }
-            catch(Exception $e)
-            {
-                die('Erreur : '.$e->getMessage());
-            }
-            ?>
-
-            </table>
 
 
+                    echo '<option value="'.$ligne[voitureId].'">'.$ligne[voitureId].'</option>';
 
-
-            <?php
-                    $nomcpt = $_SESSION['loginutilisateur'];
-                    include("connexion.php");
-            // Envoi de la requête
-            $select = $conn->query('SELECT voiture.voitureId  FROM voiture INNER JOIN compte on voiture.compteid = compte.compteid WHERE compte.compteNom = \''.$nomcpt.'\' order by voitureId ');
-            // Indication de la méthode utilisée pour la manipulation des données
-           
-            try {
-            /* $nomcompte = $_SESSION['loginutilisateur'];*/
-
-            while ($ligne = $select->fetch()) {
-
-
-                echo $ligne['voitureId'];
+                    }
 
                 }
+                catch(Exception $e)
+                {
+                    die('Erreur : '.$e->getMessage());
+                }
+                ?>
 
-            }
-            catch(Exception $e)
-            {
-                die('Erreur : '.$e->getMessage());
-            }
-            ?>
-
-
-
+            </select>
+            </span>
 
 
 
