@@ -5,8 +5,7 @@ session_start();
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/styles.css">
-
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
 
@@ -48,7 +47,7 @@ session_start();
 
             <span class="custom-dropdown custom-dropdown--white">
 
-            <select class="custom-dropdown__select custom-dropdown__select--white">
+            <select class="custom-dropdown__select custom-dropdown__select--white" name="vtc" id="choixvehicule" onchange="RecuperationId();">
                 <option value="base" disabled selected>Choisir véhicule</option>
                 <?php
                         $nomcpt = $_SESSION['loginutilisateur'];
@@ -93,4 +92,6 @@ session_start();
 
 
 
+
+<script src="js/main.js"></script>
 </body>

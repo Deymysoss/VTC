@@ -20,7 +20,10 @@
 }
 .contenupage{
     border:1px black solid;
-    background-color: #c1c1c1;
+    background-repeat: no-repeat;
+    background-image: url("images/fde.jpg");
+    background-position: center;
+    background-size:cover ;
     border-top: hidden;
     border-bottom: hidden;
     margin: 0px 8vw;
@@ -104,6 +107,9 @@
     background-color: #fff;
     color: #444;
 }
+
+
+
 
 
 
