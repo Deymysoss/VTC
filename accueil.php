@@ -37,8 +37,10 @@ session_start();
             else{
 
             }
-            ?>
+            $valeur= "<script language='Javascript'> document.write(selection); </script>";
+            echo $valeur;
 
+            ?>
 
 
 
@@ -71,10 +73,15 @@ session_start();
                 {
                     die('Erreur : '.$e->getMessage());
                 }
+
                 ?>
+
 
             </select>
             </span>
+
+
+
 
 
 
