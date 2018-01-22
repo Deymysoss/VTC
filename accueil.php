@@ -46,10 +46,8 @@ session_start();
 
 
 
-
-            <span class="custom-dropdown custom-dropdown--white">
-
-            <select class="custom-dropdown__select custom-dropdown__select--white" name="vtc" id="choixvehicule" onchange="RecuperationId();">
+            <form action="basic.php" method="post">
+            <select class="custom-dropdown__select custom-dropdown__select--white" name="vtc" id="choixvehicule"">
                 <option value="base" disabled selected>Choisir véhicule</option>
                 <?php
                         $nomcpt = $_SESSION['loginutilisateur'];
@@ -78,7 +76,11 @@ session_start();
 
 
             </select>
-            </span>
+
+                <p class="btnenvoi"><a href="basic.php"><input type="submit" value="Valider" name="Valider"></a></p>
+            </form>
+
+
 
 
 

@@ -1,7 +1,7 @@
 <?php
             session_start();
 
-            $idvoiture = $_POST['select'];
+            $idvoiture = $_SESSION['id_vehicule'];
             $nomcpt = $_SESSION['loginutilisateur'];
             include("connexion.php");
             // Envoi de la requête
@@ -12,11 +12,23 @@
                 /* $nomcompte = $_SESSION['loginutilisateur'];*/
 
                 while ($ligne = $select->fetch()) {
-                        $tableaudonnees = array(
-                            array($ligne['histDate'] , $ligne['consoBatterie'],$ligne['temperatureMoteur'])
+                        $tableaudate[] = $ligne['histDate'];
+                        $tableauconso[] = $ligne['consoBatterie'];
+                        $tableautemp[] = $ligne['temperatureMoteur'];
 
-                        );
-                        echo $ligne['consoBatterie'];
+
+
+                    $tableaudedate = array($ligne['histDate']);
+                    $tableaudeconso = array($ligne['consoBatterie']);
+                    $tableaudetemp = array($ligne['temperatureMoteur']);
+
+                    $tableaudonnees = array(
+                        array($ligne['histDate'] , $ligne['consoBatterie'],$ligne['temperatureMoteur'])
+
+                    );
+
+                    //echo $ligne['consoBatterie']."-";
+
 
 
 
