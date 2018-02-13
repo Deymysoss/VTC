@@ -1,49 +1,63 @@
+body {
+    display: block;
+    margin: 0px;
+}
+img {
+    width: 100%;
+    height: auto;
+}
 .page{
-    border:1px black solid;
-    width: 100vw;
     height: 100vh;
+    width: 100vw;
     display: flex;
 
 }
 
 .header{
-    border:1px black solid;
-    background-color: blue;
     display: flex;
-    border-left: hidden;
-    border-top: hidden;
-    border-right: hidden;
+
     height: 20vh;
     flex-direction: column;
+    justify-content: center;
 
 
 }
-.contenupage{
-    border:1px black solid;
-    background-repeat: no-repeat;
-    background-image: url("images/fde.jpg");
-    background-position: center;
-    background-size:cover ;
-    border-top: hidden;
-    border-bottom: hidden;
-    margin: 0px 8vw;
+.cont{
+    width: auto;
     display: flex;
-    height: 80vh;
+    z-index: 1;
+    padding-top: 2vh;
+    height: 100vh;
     text-align: center;
     font-size: 3vh;
+    justify-content: center;
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.86),
+            rgba(0, 0, 0, 0.86)
+    ),url('../img/2.jpg');
+
+    background-position: center;
+    background-size:cover ;
+}
+.contenupage{
+    display: flex;
+    position: absolute;
+    text-align: center;
+    font-size: 3vh;
+    justify-content: center;
 }
 #formulairecnx{
-
+    padding: 0px;
+    width: 100vw;
+    color: #989898;
     position: absolute;
-    width: auto;
-    height: auto;
-    left: 45vw;
+    justify-content: center;
+
 }
 #formulairergst{
-
-    position: absolute;
-    width: auto;
-    height: auto;
+    color: #989898;
+    position: center;
+    justify-content: center;
     left: 45vw;
 
 }
@@ -61,6 +75,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+
 }
 .menu {
 
@@ -72,15 +87,16 @@
     background-color: gray;
     display: flex;
     order: 2;
+    flex-direction: row;
 }
  #titrecnx{
-       position: absolute;
+       position: center;
        width: auto;
        height: auto;
        left: 15vw;
  }
 #titrecreation{
-    position: absolute;
+    position: center;
     width: auto;
     height: auto;
     left: 15vw;
@@ -88,66 +104,48 @@
 
 
 
-.custom-dropdown--large {
-    font-size: 1.5em;
+.choixvehicule{
+    
 
 }
 
-.custom-dropdown--small {
-    font-size: .7em;
-}
-
-.custom-dropdown__select{
-    text-align: center;
-    padding: .5em; /* add some space*/
-
-}
-
-.custom-dropdown__select--white {
-    background-color: #fff;
-    color: #444;
-}
-
-.courbe2{
-
+.btnenvoi{
+    justify-content: center;
+    width: 50vw;
+    position: absolute;
+    box-shadow:3px 3px 12px #000000;
+    font-size: 3vh;
+    border-radius: 8px;
+    background: rgba(149, 152, 144, 0.56);
 
 }
-
 
 
 
 .logo{
-    background-color: #999999;
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.6)
+    ),url('../img/ConnectyCAr.png');
+    background-color: black;
+    background-position: center;
+    background-size:contain ;
+    background-repeat: no-repeat;
+
     order: 1;
     height: 80vh;
 }
 /* modification des boutons*/
 
 .btn{
-    -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
-    -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
-    box-shadow:inset 0px 1px 0px 0px #ffffff;
-    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #f6f6f6));
-    background:-moz-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
-    background:-webkit-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
-    background:-o-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
-    background:-ms-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
-    background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0);
-    background-color:#ffffff;
-    -moz-border-radius:6px;
-    -webkit-border-radius:6px;
-    border-radius:6px;
-    border:1px solid #dcdcdc;
-    display:inline-block;
-    cursor:pointer;
-    color:#666666;
-    font-family:Arial;
-    font-size: 2vh;
-    font-weight:bold;
-    padding: 1vh 2vw;
-    text-decoration:none;
-    text-shadow:0px 1px 0px #ffffff;
+
+    width: 100vw;
+    border: solid 1px black;
+    box-shadow:3px 3px 12px #000000;
+    padding: 1px;
+    border-radius: 8px;
+    background: rgba(149, 152, 144, 0.56);
+
 }
 .btn:hover {
     background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f6f6f6), color-stop(1, #ffffff));
@@ -162,11 +160,11 @@
 .btn:active {
     position:relative;
     top:1px;
-}
+    }
 
 
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 900px) {
     /* Style adjustments for viewports that meet the condition */
     .texte {
         border: 1px black solid;
@@ -180,37 +178,8 @@
     }
 
 
-    #formulairecnx{
 
-        position: absolute;
-        width: auto;
-        height: auto;
-        left: 25vw;
-    }
 
-    #formulairergst{
 
-        position: absolute;
-        width: auto;
-        height: auto;
-        left: 25vw;
-
-    }
-
-    #titrecreation{
-        position: absolute;
-        width: auto;
-        height: auto;
-        left: 15vw;
-    }
-    #titrecnx{
-        position: absolute;
-        width: auto;
-        height: auto;
-        left: 15vw;
-    }
-    #tableaudonnées{
-
-    }
 
 }
