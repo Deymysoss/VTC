@@ -26,20 +26,21 @@
                 <input id="btnacceuil" class="btn" type="button" value="Accueil" onclick="document.location.href='index.php';">
             </div>
         </div>
-        <div class="contenupage">
+        <div class="cont">
+            <div class="contenupage">
 
-            <p id="titrecreation" >Ajout d'un véhicule :</p></br>
 
 
-            <form id="formulairecnx" method="post" action="traitement.php">
+                <form id="formulairecnx" method="post" action="traitement.php">
 
-                <p>type de la voiture  </br><input   type="text" name="typev"></p>
-                <p>mot de passe de la voiture </br><input type="text" name="mdpv"></p>
-                </br>
-                <input type="hidden" name="option" value="ajoutvoiture">
-                <input id="btnvalider" class="btn" type="submit" name="valider" value="valider">
-            </form>
+                    <p>type de la voiture  </br><input   type="text" name="typev"></p>
+                    <p>mot de passe de la voiture </br><input type="text" name="mdpv"></p>
+                    </br>
+                    <input type="hidden" name="option" value="ajoutvoiture">
+                    <input id="btnvalider" class="btnenvoi1" type="submit" name="valider" value="valider">
+                </form>
 
+            </div>
         </div>
     </div>
 

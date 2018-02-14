@@ -26,21 +26,21 @@
                 <input id="btnacceuil" class="btn" type="button" value="Accueil" onclick="document.location.href='index.php';">
             </div>
         </div>
-        <div class="contenupage">
+        <div class="cont">
+            <div class="contenupage">
 
-                <p id="titrecreation" >Création d'un compte :</p></br>
 
 
-            <form id="formulairecnx" method="post" action="traitement.php">
+                <form id="formulairecnx" method="post" action="traitement.php">
 
-                <p>login </br><input   type="text" name="login"></p>
-                <p>mot de passe </br><input type="text" name="mdp"></p>
-                </br>
-                <input type="hidden" name="option" value="creation">
-                <input id="btnvalider" class="btn" type="submit" name="valider" value="valider">
-            </form>
-
-        </div>
+                    <p>login </br><input   type="text" name="login"></p>
+                    <p>mot de passe </br><input type="text" name="mdp"></p>
+                    </br>
+                    <input type="hidden" name="option" value="creation">
+                    <input id="btnvalider" class="btnenvoi1" type="submit" name="valider" value="valider">
+                </form>
+            </div>
+            </div>
     </div>
 
 </div>

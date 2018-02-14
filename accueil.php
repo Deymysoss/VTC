@@ -25,63 +25,63 @@ session_start();
             </div>
 
         </div>
-        <div class="contenupage">
+        <div class="cont">
+            <div class="contenupage">
 
-            <?php
-            if( isset( $_SESSION['loginutilisateur']))
-            {
-
-                echo "<p>". $_SESSION['message']."</p>";
-
-            }
-            else{
-
-            }
-            $valeur= "<script language='Javascript'> document.write(selection); </script>";
-            echo $valeur;
-
-            ?>
-
-
-
-
-
-            <form action="basic.php" method="post">
-            <select class="custom-dropdown__select custom-dropdown__select--white" name="vtc" id="choixvehicule"">
-                <option value="base" disabled selected>Choisir véhicule</option>
                 <?php
-                        $nomcpt = $_SESSION['loginutilisateur'];
-                        include("connexion.php");
-                // Envoi de la requête
-                $select = $conn->query('SELECT voiture.voitureId  FROM voiture INNER JOIN compte on voiture.compteid = compte.compteid WHERE compte.compteNom = \''.$nomcpt.'\' order by voitureId ');
-                // Indication de la méthode utilisée pour la manipulation des données
-
-                try {
-                /* $nomcompte = $_SESSION['loginutilisateur'];*/
-
-                while ($ligne = $select->fetch()) {
-
-
-                    echo '<option value="'.$ligne[voitureId].'">'.$ligne[voitureId].'</option>';
-
-                    }
-
-                }
-                catch(Exception $e)
+                if( isset( $_SESSION['loginutilisateur']))
                 {
-                    die('Erreur : '.$e->getMessage());
+
+
+
                 }
+                else{
+
+                }
+                $valeur= "<script language='Javascript'> document.write(selection); </script>";
+                echo $valeur;
 
                 ?>
 
 
-            </select>
-
-                <p class="btnenvoi"><a href="basic.php"><input type="submit" value="Valider" name="Valider"></a></p>
-            </form>
 
 
 
+                <form id="formulairecnx" action="temperature.php" method="post">
+                <select  name="vtc" id="choixvehicule">
+                    <option value="base" disabled selected>Choisir véhicule</option>
+                    <?php
+                            $nomcpt = $_SESSION['loginutilisateur'];
+                            include("connexion.php");
+                    // Envoi de la requête
+                    $select = $conn->query('SELECT voiture.voitureId  
+                    FROM voiture INNER JOIN compte on voiture.compteid = compte.compteid 
+                    WHERE compte.compteNom = \''.$nomcpt.'\' order by voitureId ');
+                    // Indication de la méthode utilisée pour la manipulation des données
+
+                    try {
+                    /* $nomcompte = $_SESSION['loginutilisateur'];*/
+
+                    while ($ligne = $select->fetch()) {
+
+
+                        echo '<option value="'.$ligne[voitureId].'">'.$ligne[voitureId].'</option>';
+
+                        }
+
+                    }
+                    catch(Exception $e)
+                    {
+                        die('Erreur : '.$e->getMessage());
+                    }
+
+                    ?>
+
+
+                </select>
+
+                    <p class="btnenvoi"><a href="temperature.php"><input type="submit" class="btnenvoi" value="Valider" name="Valider"></a></p>
+                </form>
 
 
 
@@ -94,6 +94,10 @@ session_start();
 
 
 
+
+
+
+            </div>
         </div>
     </div>
 

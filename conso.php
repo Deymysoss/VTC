@@ -16,7 +16,9 @@ $tableaudate=array();
 $tableauconso=array();
 include("connexion.php");
 // Envoi de la requête
-$select = $conn->query('SELECT historique.histDate, historique.consoBatterie, historique.temperatureMoteur, historique.voitureId FROM historique INNER JOIN voiture ON historique.voitureid = voiture.voitureid INNER JOIN compte on voiture.compteid = compte.compteid WHERE compte.compteNom = \''.$nomcpt.'\' and historique.voitureid = \''.$idvoiture.'\' ');
+$select = $conn->query('SELECT historique.histDate, historique.consoBatterie, historique.temperatureMoteur, historique.voitureId 
+FROM historique INNER JOIN voiture ON historique.voitureid = voiture.voitureid INNER JOIN compte on voiture.compteid = compte.compteid
+WHERE compte.compteNom = \''.$nomcpt.'\' and historique.voitureid = \''.$idvoiture.'\'ORDER BY historique.histId DESC LIMIT 10 ');
 // Indication de la méthode utilisée pour la manipulation des données
 
 try {
@@ -113,69 +115,68 @@ function echo_array($tab)
             </div>
 
         </div>
-        <div class="contenupage">
+        <div class="cont">
+            <div class="contenupage">
 
-            <div style="width:80vw; height:80%; ">
-                <canvas id="canvas"></canvas>
-            </div>
-            <br>
-            <br>
+                <div style="width:72vw; height:72vh;">
+                    <canvas id="canvas"></canvas>
+                </div>
+                <br>
+                <br>
 
-            <script>
-                var MONTHS = <?php echo_array($abcisse1); ?>;
-                var config = {
-                    type: 'line',
-                    data: {
-                        labels: <?php echo_array($abcisse1); ?>,
-                        datasets: [{
-                            label: <?php echo '"'.$label1.'"'; ?>,
-                            backgroundColor: window.chartColors.red,
-                            borderColor: window.chartColors.red,
-                            data: <?php echo_array($ordonnee1); ?>,
-                            fill: false,
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        title:{
-                            display:true,
-                            text:<?php echo '"'.$titre1.'"'; ?>
-                        },
-                        tooltips: {
-                            mode: 'index',
-                            intersect: false,
-                        },
-                        hover: {
-                            mode: 'nearest',
-                            intersect: true
-                        },
-                        scales: {
-                            xAxes: [{
-                                display: true,
-                                scaleLabel: {
-                                    display: true,
-                                    labelString: <?php echo '"'.$label_abcisse1.'"'; ?>
-                                }
-                            }],
-                            yAxes: [{
-                                display: true,
-                                scaleLabel: {
-                                    display: true,
-                                    labelString: <?php echo '"'.$label_ordonnee1.'"'; ?>
-                                }
+                <script>
+                    var MONTHS = <?php echo_array($abcisse1); ?>;
+                    var config = {
+                        type: 'line',
+                        data: {
+                            labels: <?php echo_array($abcisse1); ?>,
+                            datasets: [{
+                                label: <?php echo '"'.$label1.'"'; ?>,
+                                backgroundColor: window.chartColors.red,
+                                borderColor: window.chartColors.red,
+                                data: <?php echo_array($ordonnee1); ?>,
+                                fill: false,
                             }]
+                        },
+                        options: {
+                            responsive: true,
+                            title:{
+                                display:true,
+                                text:<?php echo '"'.$titre1.'"'; ?>
+                            },
+                            tooltips: {
+                                mode: 'index',
+                                intersect: false,
+                            },
+                            hover: {
+                                mode: 'nearest',
+                                intersect: true
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: <?php echo '"'.$label_abcisse1.'"'; ?>
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: <?php echo '"'.$label_ordonnee1.'"'; ?>
+                                    }
+                                }]
+                            }
                         }
-                    }
-                };
-                window.onload = function() {
-                    var ctx = document.getElementById("canvas").getContext("2d");
-                    window.myLine = new Chart(ctx, config);
-                };
+                    };
+                    window.onload = function() {
+                        var ctx = document.getElementById("canvas").getContext("2d");
+                        window.myLine = new Chart(ctx, config);
+                    };
 
 
-            </script>
-
-
+                </script>
 
 
 
@@ -183,8 +184,10 @@ function echo_array($tab)
 
 
 
+
+
+            </div>
         </div>
-
     </div>
 
 </div>
